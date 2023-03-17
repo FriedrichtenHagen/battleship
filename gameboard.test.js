@@ -1,11 +1,13 @@
 ({ship, gameboard} = require("./script.js"))
 
-test('test gameboard coordinates', () => {
-    const coord = [1,2,3,4,5,6,7,8]
+
+
+test('test placing a ship onto the board', () => {
+    const shipCoords = [[1,2],[1,3],[1,4]]
     const gameboardTest = gameboard()
-    expect(gameboardTest.boardCoordinatesX).toStrictEqual(coord)
-    expect(gameboardTest.boardCoordinatesY).toStrictEqual(coord)
-  });
+    gameboardTest.placeShip(shipCoords)
+
+expect(gameboardTest.ships).toStrictEqual([123])
+});
 
 
-  
