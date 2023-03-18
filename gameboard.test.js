@@ -3,11 +3,26 @@
 
 
 test('test placing a ship onto the board', () => {
-    const shipCoords = [[1,2],[1,3],[1,4]]
+    const startCoords = [1,2]
     const gameboardTest = gameboard()
-    gameboardTest.placeShip(shipCoords)
+    gameboardTest.placeShipX(startCoords, 4)
 
-expect(gameboardTest.ships).toStrictEqual([123])
+expect(gameboardTest.board).toStrictEqual(
+    [
+        // [row,column] (from 0-5)
+        ["x","x","x","x","x","x"],
+        ["x","x","S","S","S","S"],
+        ["x","x","x","x","x","x"],
+        ["x","x","x","x","x","x"],
+        ["x","x","x","x","x","x"],
+        ["x","x","x","x","x","x"],
+    ]
+)
+expect(gameboardTest.ships[0]).toStrictEqual("masdf"
+)
+
+
+
 });
 
 

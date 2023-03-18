@@ -37,20 +37,20 @@ function gameboard(){
         ships: [],
         placeShipX(startCo, length){
             // calculate the coord. of the ship
-            let calcCoord = [startCo]
-            for(let i=1; i<(length-1); i++){
-                let additionalCo = [startCo[0], startCo[1]+1]
+            let calcCoord = []
+            for(let i=0; i<(length); i++){
+                let additionalCo = [startCo[0], startCo[1]+i]
                 calcCoord.push(additionalCo)
             }
             calcCoord.forEach(coordinate => {
                 // problem: the array gets inserted as such: [[1,2]]
-                this.board[coordinate] = "S"                
+                this.board[coordinate[0]][coordinate[1]] = "S"                
             });
 
             // create ship
-            let newShip = ship(coordinates)
+            let newShip = ship(calcCoord)
             // add new ship to ships array
-            
+            this.ships.push(newShip)
         },
         placeShipY(coordinates){
 
