@@ -49,7 +49,7 @@ test('place ship on board vertically: check the array representation', () => {
 // test recieving an attack
 test('check recieving a bomb', () => {
     // setup a board with a placed ship
-    const gameboardTest = gameboard()
-    gameboardTest.placeShipX([0,0], 3)
-    expect(gameboardTest.recieveAttack([0,2])).toBe(true)
+    let bombTest = gameboard()
+    bombTest.placeShipX([0,0], 3)
+    expect(bombTest.recieveAttack([0,2])).toBe(true)
 });

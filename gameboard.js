@@ -1,3 +1,5 @@
+({ship} = require("./ship.js"));
+
 function gameboard(){
     return {
         board: [
@@ -60,22 +62,28 @@ function gameboard(){
                         }
                     })
                 });
+                // add hit to ship
                 hitShip.hit()
+                // check if ship is sunk
                 hitShip.isSunk()
 
-                // mark hit,miss on board
+                // mark hit on board
+                this.board[attackCo[0]][attackCo[1]] = "H"
 
-                return hitShip
+                return hitShip.hit()
             } else{
                 // an empty field was hit
 
-
+            
+                // mark miss on board
+                this.board[attackCo[0]][attackCo[1]] = "M"
                 return false
             }
         },
     }
 }
 const testBoard = gameboard()
+testBoard.placeShipX([0,0], 3)
 
 
 module.exports = {gameboard}
