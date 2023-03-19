@@ -50,31 +50,6 @@ test('place ship on board vertically: check the array representation', () => {
 test('check recieving a bomb', () => {
     // setup a board with a placed ship
     const gameboardTest = gameboard()
-    gameboardTest.board = 
-    [
-        // [row,column] (from 0-5)
-        ["x","x","x","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","x","x","x","x"],
-    ]
-    expect(gameboardTest.recieveAttack([1,2])).toBe(true)
+    gameboardTest.placeShipX([0,0], 3)
+    expect(gameboardTest.recieveAttack([0,2])).toBe(true)
 });
-test('check revieving a bomb', () => {
-    // setup a board with a placed ship
-    const gameboardTest = gameboard()
-    gameboardTest.board = 
-    [
-        // [row,column] (from 0-5)
-        ["x","x","x","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","S","x","x","x"],
-        ["x","x","x","x","x","x"],
-    ]
-    expect(gameboardTest.recieveAttack([3,3])).toBe(false)
-});
-

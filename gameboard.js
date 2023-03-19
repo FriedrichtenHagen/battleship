@@ -47,10 +47,18 @@ function gameboard(){
             if(this.board[attackCo[0]][attackCo[1]]==="S"){
                 // find the correct ship object
                 let hitShip;
-                this.ships.forEach(ship => {
-                    if(ship.coordinates.includes(attackCo)){
-                        hitShip = ship
-                    }
+                // go through each ship on gameboard
+                this.ships.forEach((ship, shipsIndex) => {
+                    // go through each coordinate of the ship
+                    ship.coordinates.forEach((shipCoordinate) => {
+                        // transform array into string to allow comparison
+                        let coordinateString = JSON.stringify(shipCoordinate)
+                        let attackCoString = JSON.stringify(attackCo)
+                        // save the ship that was hit by the attack coordinates
+                        if(coordinateString === attackCoString){
+                            hitShip = ship
+                        }
+                    })
                 });
                 hitShip.hit()
                 hitShip.isSunk()
