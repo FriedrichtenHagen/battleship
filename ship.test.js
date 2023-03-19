@@ -1,4 +1,4 @@
-({ship} = require("./script.js"))
+({ship} = require("./ship.js"))
 // import {ship} from "./script.js"
 
 test('test ship length', () => {
