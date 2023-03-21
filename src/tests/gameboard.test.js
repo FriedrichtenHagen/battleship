@@ -47,9 +47,43 @@ test('place ship on board vertically: check the array representation', () => {
 
 
 // test recieving an attack
-test('check recieving a bomb', () => {
+test('a attack on the board transfering to the ships hits', () => {
     // setup a board with a placed ship
-    let bombTest = gameboard()
-    bombTest.placeShipX([0,0], 3)
-    expect(bombTest.recieveAttack([0,2])).toBe(true)
+    let player1 = gameboard()
+    player1.placeShipX([0,0], 3)
+    player1.recieveAttack([0,2])
+
+    expect(player1.ships[0].hits).toBe(1)
+});
+test('check the resulting board after a attack', () => {
+    // setup a board with a placed ship
+    let player1 = gameboard()
+    player1.placeShipX([0,0], 3)
+    player1.recieveAttack([0,2])
+    player1.recieveAttack([1,3])
+    player1.recieveAttack([4,4])
+
+    expect(player1.board).toStrictEqual(
+        [
+            // [row,column] (from 0-5)
+            ["S","S","H","x","x","x"],
+            ["x","x","x","M","x","x"],
+            ["x","x","x","x","x","x"],
+            ["x","x","x","x","x","x"],
+            ["x","x","x","x","M","x"],
+            ["x","x","x","x","x","x"],
+        ]
+    )
+});
+
+
+test('if the gameover check works', () => {
+    // setup a board with a placed ship
+    let player1 = gameboard()
+    player1.placeShipX([0,0], 3)
+    player1.recieveAttack([0,0])
+    player1.recieveAttack([0,1])
+    player1.recieveAttack([0,2])
+
+    expect(player1.recieveAttack([0,2])).toBe("asgdasdf")
 });

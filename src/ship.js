@@ -23,6 +23,5 @@ function ship(coordinates){
 }
 const testShip = ship(3)
 
-console.log("shippp")
 
 module.exports = {ship}

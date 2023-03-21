@@ -65,6 +65,9 @@ function gameboard(){
                 // add hit to ship
                 hitShip.hit()
 
+                if(hitShip.isSunk()){
+                    hitShip.sunk = true
+                }
                 // mark hit on board
                 this.board[attackCo[0]][attackCo[1]] = "H"
             } else if(this.board[attackCo[0]][attackCo[1]]==="x"){
@@ -74,15 +77,22 @@ function gameboard(){
                 this.board[attackCo[0]][attackCo[1]] = "M"
             }
             // check if all ships are sunk
-
-
+            let sunkCounter=0;
+            this.ships.forEach(ship => {
+                if(ship.sunk){
+                    sunkCounter++
+                }
+            })
+            if(sunkCounter===this.ships.length){
+                return "game over"
+            }
             
         },
     }
 }
 const testBoard = gameboard()
 testBoard.placeShipX([0,0], 3)
-console.log("gamebaordd")
+
 
 
 module.exports = {gameboard, testBoard}
