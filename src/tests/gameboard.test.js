@@ -1,5 +1,5 @@
-({gameboard} = require("./src/gameboard.js"));
-({ship} = require("./src/ship.js"));
+({gameboard} = require("/home/friedrichtenhagen/battleship/src/gameboard.js"));
+({ship} = require("/home/friedrichtenhagen/battleship/src/ship.js"));
 
 // test placing horizontally
 test('place ship on board horizontally: check the array representation', () => {

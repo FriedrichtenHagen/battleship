@@ -1,5 +1,5 @@
-// ({ship} = require("../src/ship.js"))
-import ship from "../src/ship.js"
+({ship} = require("/home/friedrichtenhagen/battleship/src/ship"))
+// import {ship} from "/home/friedrichtenhagen/battleship/srcship.js"
 
 test('test ship length', () => {
   const battleship = ship([[1,2],[1,3]])
