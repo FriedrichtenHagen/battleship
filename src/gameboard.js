@@ -83,6 +83,7 @@ function gameboard(){
                     sunkCounter++
                 }
             })
+            // check for game over
             if(sunkCounter===this.ships.length){
                 return "game over"
             }

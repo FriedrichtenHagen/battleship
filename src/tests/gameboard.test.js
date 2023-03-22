@@ -85,5 +85,5 @@ test('if the gameover check works', () => {
     player1.recieveAttack([0,1])
     player1.recieveAttack([0,2])
 
-    expect(player1.recieveAttack([0,2])).toBe("asgdasdf")
+    expect(player1.recieveAttack([0,2])).toBe("game over")
 });
