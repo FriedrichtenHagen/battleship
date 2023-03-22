@@ -1,17 +1,17 @@
 ({gameboard} = require("./gameboard.js"));
-
+({ship} = require("./ship.js"));
 
 function player(name){
     return {
         name: name,
         turn: false,
-        board: gameboard(),
+        gameboard: gameboard(),
         hitCoordinates: [],
         makeAMove(coordinates){
             // check if coordinates have already been hit
             if(!checkIfArrayContainsCoordinate(this.hitCoordinates, coordinates)){
                 // send attack to board
-                this.board.recieveAttack(coordinates)
+                this.gameboard.recieveAttack(coordinates)
                 // add coordinates to array of hit coordinates
                 this.hitCoordinates.push(coordinates)
             }

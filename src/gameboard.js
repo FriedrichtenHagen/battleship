@@ -12,6 +12,7 @@ function gameboard(){
             ["x","x","x","x","x","x"],
         ],
         ships: [],
+        gameOver: false,
         placeShipX(startCo, length){
             // calculate the coord. of the ship
             let calcCoord = []
@@ -85,7 +86,7 @@ function gameboard(){
             })
             // check for game over
             if(sunkCounter===this.ships.length){
-                return "game over"
+                this.gameOver = true
             }
             
         },
