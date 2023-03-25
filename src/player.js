@@ -14,8 +14,10 @@ function player(name){
                 this.gameboard.recieveAttack(coordinates)
                 // add coordinates to array of hit coordinates
                 this.hitCoordinates.push(coordinates)
+                return true
             } else{
                 alert("illegal move!")
+                return false
             }
         },
         makeARandomMove(){

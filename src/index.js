@@ -32,13 +32,22 @@ computerFields.forEach(computerField => {
         // human move
         let clickedCoordinate = [parseInt(computerField.dataset.row), parseInt(computerField.dataset.column)]
         console.log(clickedCoordinate)
-        // send attack to computer board
-        computer.makeAMove(clickedCoordinate)
-        paintShips(computer.gameboard, "computer")
+        // send (legal) attack to computer board
+        if(computer.makeAMove(clickedCoordinate)){
+            paintShips(computer.gameboard, "computer")
 
-        // computer move
-        human.makeARandomMove()
-        paintShips(human.gameboard, "human")
+            if(computer.gameboard.gameOver){
+                alert("gameover")
+            }
+
+            // random computer move on human board
+            human.makeARandomMove()
+            paintShips(human.gameboard, "human")
+
+            if(human.gameboard.gameOver){
+                alert("gameover")
+            }
+        }
     })
 })
 
@@ -50,7 +59,6 @@ computerFields.forEach(computerField => {
 
 
 /* 
-dont allow a hit field to be clicked
 add a win or lose condition 
     add gameover message
 */
