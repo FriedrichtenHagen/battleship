@@ -21,15 +21,26 @@ computer.gameboard.placeShipX([5,3],3)
 computer.gameboard.placeShipY([0,5],2)
 
 // paint the ships onto board
-paintShips(human.gameboard, "player1")
-paintShips(human.gameboard, "player2")
+// paintShips(computer.gameboard, "player1")
+paintShips(human.gameboard, "human")
 
 
-// display human ships on field
 // add eventlistener to all computer fields
-    // make a human move (on computers field)computer.makeAMove([row, column])
-        // displayMoves on DOM (hits, misses)
-    // make a computer move( on the human field) human.makeARandomMove()
+const computerFields = document.querySelectorAll(".field1")
+computerFields.forEach(computerField => {
+    computerField.addEventListener("click", ()=> {
+        // human move
+        let clickedCoordinate = [parseInt(computerField.dataset.row), parseInt(computerField.dataset.column)]
+        console.log(clickedCoordinate)
+        // send attack to computer board
+        computer.makeAMove(clickedCoordinate)
+        paintShips(computer.gameboard, "computer")
+
+        // computer move
+        human.makeARandomMove()
+        paintShips(human.gameboard, "human")
+    })
+})
 
 
 
@@ -37,22 +48,11 @@ paintShips(human.gameboard, "player2")
 
 
 
-// // make human moves
-// human.makeAMove([1,2])
-// human.makeAMove([1,4])
 
-// // place computer ships
-// computer.gameboard.placeShipX([1,0],4)
-// computer.gameboard.placeShipX([5,3],3)
-// computer.gameboard.placeShipY([0,5],2)
-
-// // make human moves
-// computer.makeARandomMove()
-// computer.makeARandomMove()
-// computer.makeARandomMove()
-// computer.makeARandomMove()
-// computer.makeARandomMove()
-
-// console.log(human.gameboard.board, computer.gameboard.board)
+/* 
+dont allow a hit field to be clicked
+add a win or lose condition 
+    add gameover message
+*/
 
 

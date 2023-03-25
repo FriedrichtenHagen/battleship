@@ -14,13 +14,24 @@ function player(name){
                 this.gameboard.recieveAttack(coordinates)
                 // add coordinates to array of hit coordinates
                 this.hitCoordinates.push(coordinates)
+            } else{
+                alert("illegal move!")
             }
         },
         makeARandomMove(){
             let randomX = Math.floor(6*Math.random())
             let randomY = Math.floor(6*Math.random())
             let randomCo = [randomX, randomY]
-            this.makeAMove(randomCo)
+            while(checkIfArrayContainsCoordinate(this.hitCoordinates, randomCo)){
+                randomX = Math.floor(6*Math.random())
+                randomY = Math.floor(6*Math.random())
+                randomCo = [randomX, randomY]
+            }
+            //if(!checkIfArrayContainsCoordinate(this.hitCoordinates, randomCo)){
+
+                this.makeAMove(randomCo)
+
+            //}
         }
     } 
 }
