@@ -31,7 +31,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: aliceblue;
 }
 .field1{
     cursor: pointer;
+}
+#hit{
+    background-color: red;
+}
+#ship{
+    background-color: blue;
 }

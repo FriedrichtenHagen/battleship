@@ -90,6 +90,7 @@ function gameboard(){
             }
             
         },
+
     }
 }
 const testBoard = gameboard()

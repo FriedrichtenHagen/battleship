@@ -37,7 +37,7 @@ computerFields.forEach(computerField => {
             paintShips(computer.gameboard, "computer")
 
             if(computer.gameboard.gameOver){
-                alert("gameover")
+                alert("you won!")
             }
 
             // random computer move on human board
@@ -45,7 +45,7 @@ computerFields.forEach(computerField => {
             paintShips(human.gameboard, "human")
 
             if(human.gameboard.gameOver){
-                alert("gameover")
+                alert("computer wins")
             }
         }
     })
@@ -54,13 +54,12 @@ computerFields.forEach(computerField => {
 
 
 
-
-
-
-
 /* 
-add a win or lose condition 
-    add gameover message
+add classes to h,m,sunk
+    add colors
+let players place the ships
+move the eventlistener functions to the modules
+upgrade intelligence of the computer player
 */
 
 

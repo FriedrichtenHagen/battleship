@@ -13,9 +13,17 @@ function paintShips(gameboard, player){
                 let currentField = document.querySelector(`${field}[data-row="${r}"][data-column="${c}"]`)
                 if(gameboardArray[r][c]==="H"||gameboardArray[r][c]==="M"){
                     currentField.textContent = gameboardArray[r][c]
-                }
+                }  
+                // add css id
+                    if(gameboardArray[r][c]==="S"){
+                        // currentField.setAttribute("id", "ship")
+                    } else if(gameboardArray[r][c]==="H"){
+                        currentField.setAttribute("id", "hit")
+                    } else if(gameboardArray[r][c]==="M"){
+                        currentField.setAttribute("id", "miss")
+                    }
                 
-                // maybe add cooler animation at this point
+
                 // ...
                 // remove Eventlistener from that field
             }
@@ -33,7 +41,14 @@ function paintShips(gameboard, player){
                 if(gameboardArray[r][c]==="S"||gameboardArray[r][c]==="H"||gameboardArray[r][c]==="M"){
                     currentField.textContent = gameboardArray[r][c]
                 }
-                
+                // add css id
+                if(gameboardArray[r][c]==="S"){
+                    currentField.setAttribute("id", "ship")
+                } else if(gameboardArray[r][c]==="H"){
+                    currentField.setAttribute("id", "hit")
+                } else if(gameboardArray[r][c]==="M"){
+                    currentField.setAttribute("id", "miss")
+                }
                 // maybe add cooler animation at this point
                 // ...
     
