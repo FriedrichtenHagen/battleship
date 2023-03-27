@@ -55,8 +55,6 @@ computerFields.forEach(computerField => {
 
 
 /* 
-add classes to h,m,sunk
-    add colors
 let players place the ships
 move the eventlistener functions to the modules
 upgrade intelligence of the computer player
